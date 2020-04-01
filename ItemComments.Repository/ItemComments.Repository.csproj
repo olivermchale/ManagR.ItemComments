@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ItemComments.Data\ItemComments.Data.csproj" />
+    <ProjectReference Include="..\ItemComments.Models\ItemComments.Models.csproj" />
+    <ProjectReference Include="..\ItemComments.Services\ItemComments.Services.csproj" />
+  </ItemGroup>
+
+</Project>
