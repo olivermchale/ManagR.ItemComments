@@ -52,7 +52,7 @@ namespace ItemComments.Repository
                         CreatedAt = c.CreatedAt,
                         Id = c.Id,
                         IsActive = c.IsActive
-                    }).ToListAsync();
+                    }).OrderByDescending(d => d.CreatedAt).ToListAsync();
 
                 var tasks = new List<Task<bool>>();
                 foreach (var comment in comments)
