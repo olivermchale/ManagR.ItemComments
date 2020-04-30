@@ -4,6 +4,7 @@ using ItemComments.Models.ViewModels;
 using ItemComments.Repository.Interfaces;
 using ItemComments.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,12 @@ namespace ItemComments.Repository
     {
         private ItemCommentsDb _context;
         private ICommenterService _commenterService;
-        public CommentsRepository(ItemCommentsDb context, ICommenterService commenterService)
+        private ILogger<CommentsRepository> _logger;
+        public CommentsRepository(ItemCommentsDb context, ICommenterService commenterService, ILogger<CommentsRepository> logger)
         {
             _context = context;
             _commenterService = commenterService;
+            _logger = logger;
         }
 
         public async Task<bool> CreateComment(CommentDto comment)
@@ -34,7 +37,7 @@ namespace ItemComments.Repository
             }
             catch (Exception e)
             {
-                // exception creating comment
+                _logger.LogError("Exception when creating comment, Exception:" + e + "Stack trace:" + e.StackTrace, "comment: " + comment);
             }
             return false;
         }
@@ -54,17 +57,22 @@ namespace ItemComments.Repository
                         IsActive = c.IsActive
                     }).OrderByDescending(d => d.CreatedAt).ToListAsync();
 
+                // Create a list of tasks (i.e a series of executions)
+                // Then add all the tasks to a list
                 var tasks = new List<Task<bool>>();
                 foreach (var comment in comments)
                 {
                     tasks.Add(_commenterService.GetCommenter(comment));
                 }
+              
+                // Asynchronously fire and wait for all tasks to complete, when this has happened all comments have a commenter
+                // From communicating with the ManagR identity/authentication microservice
                 Task.WhenAll(tasks).Wait();
                 return comments;
             }
             catch (Exception e)
             {
-                // excpetion getting comments
+                _logger.LogError("Exception when getting comments, Exception:" + e + "Stack trace:" + e.StackTrace, "item: " + itemId);
             }
             return null;
         }

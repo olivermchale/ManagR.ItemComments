@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagR.ItemComments", "ManagR.ItemComments\ManagR.ItemComments.csproj", "{8508C16D-7AB2-42C9-A6F3-2C811F685F39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagR.ItemComments", "ManagR.ItemComments\ManagR.ItemComments.csproj", "{8508C16D-7AB2-42C9-A6F3-2C811F685F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemComments.Data", "ItemComments.Data\ItemComments.Data.csproj", "{FA95CF39-F9AA-4082-9028-BFCB2E636577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemComments.Data", "ItemComments.Data\ItemComments.Data.csproj", "{FA95CF39-F9AA-4082-9028-BFCB2E636577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemComments.Models", "ItemComments.Models\ItemComments.Models.csproj", "{A8447D67-A04A-4457-824B-FE9C5B6BC217}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemComments.Models", "ItemComments.Models\ItemComments.Models.csproj", "{A8447D67-A04A-4457-824B-FE9C5B6BC217}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemComments.Repository", "ItemComments.Repository\ItemComments.Repository.csproj", "{8AD21A7F-4F80-44F9-9FFA-D864F19748D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemComments.Repository", "ItemComments.Repository\ItemComments.Repository.csproj", "{8AD21A7F-4F80-44F9-9FFA-D864F19748D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemComments.Services", "ItemComments.Services\ItemComments.Services.csproj", "{7887CDA7-F504-4C4A-A301-60FD7027680A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemComments.Services", "ItemComments.Services\ItemComments.Services.csproj", "{7887CDA7-F504-4C4A-A301-60FD7027680A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemComments.Repository.Tests", "ItemComments.Repository.Tests\ItemComments.Repository.Tests.csproj", "{BBD4D6E5-989A-46F5-81B0-E187D2BE6D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemComments.Controllers.Tests", "ItemComments.Controllers.Tests\ItemComments.Controllers.Tests.csproj", "{2875E4D9-3118-4F2E-A45E-C48D3861E05A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{7887CDA7-F504-4C4A-A301-60FD7027680A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7887CDA7-F504-4C4A-A301-60FD7027680A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7887CDA7-F504-4C4A-A301-60FD7027680A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD4D6E5-989A-46F5-81B0-E187D2BE6D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD4D6E5-989A-46F5-81B0-E187D2BE6D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD4D6E5-989A-46F5-81B0-E187D2BE6D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD4D6E5-989A-46F5-81B0-E187D2BE6D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2875E4D9-3118-4F2E-A45E-C48D3861E05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2875E4D9-3118-4F2E-A45E-C48D3861E05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2875E4D9-3118-4F2E-A45E-C48D3861E05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2875E4D9-3118-4F2E-A45E-C48D3861E05A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

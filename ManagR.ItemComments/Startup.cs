@@ -28,8 +28,11 @@ namespace ManagR.ItemComments
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
+        
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add cors to prevent CORS attacks
             services.AddCors(options =>
             {
                 options.AddPolicy("ManagRAppServices",
@@ -43,6 +46,7 @@ namespace ManagR.ItemComments
                 });
             });
 
+            // Add authentication
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             var accountUri = Configuration.GetValue<Uri>("AccountsUrl");
@@ -72,12 +76,14 @@ namespace ManagR.ItemComments
 
             services.AddControllers();
 
+            // Add db context
             services.AddDbContext<ItemCommentsDb>(options => options.UseSqlServer(
              Configuration.GetConnectionString("ItemComments")));
 
             services.AddScoped<ICommentsRepository, CommentsRepository>();
             services.AddScoped<ICommenterService, CommenterService>();
 
+            // Create http client available for DI 
             services.AddHttpClient("accounts", c =>
             {
                 c.BaseAddress = accountUri;
